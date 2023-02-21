@@ -1,0 +1,44 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <!-- Header-bg Start -->
+    <div class="header-w-bg p-2 " style="background-color: #29793a;">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="normal-text">Our Blog</h3>
+                <p class="normal-text">We post awesome content regularly</p>
+            </div>
+        </div>  
+    </div>
+    <!-- Header-bg end -->
+
+    <!-- Main Blog Start -->
+    <section id="blog" class="animate__animated animate__fadeIn">
+        <div class="container-lg">
+            <div class="row">
+                {% for a in post %}
+                <!-- === Blog item 1 === -->
+                <div class="col-sm-6 mb-4">
+                    <div class="blog wow zoomIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                        <div class="blog-media">
+                            <a  href="blog_single_post.html"><img src="{{a.featured_image.url}}" alt="" class="img-fluid"></a>
+                        </div><!--post media-->
+                        
+                        <div class="blog-post-info clearfix">
+                            <span class="time"><i class="bi bi-calendar-fill"></i> {{a.date_posted}}</span>
+                            <!-- <span class="comments"><a href="#"><i class="fa fa-comments"></i> 4 Comments</a></span> -->
+                        </div><!--post info-->
+                        
+                        <div class="blog-post-body">
+                            <h4><a class="title" href="blog_single_post.html">{{a.title}}</a></h4>
+                            <p class="p-bottom-20">{{a.body|truncatechars:50}}</p>
+                            <a href="/blog/{{a.slug}}" class="read-more">Read More >></a>
+                        </div><!--post body-->                   
+                    </div> <!-- /.blog -->
+                </div> <!-- /.inner-col -->
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Main Blog End -->
+    {% endblock %}

@@ -1,0 +1,44 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <!-- Blog Content Start -->
+    <section id="blog" class="animate__animated animate__fadeIn">
+        <div class="container-lg">
+            <div class="col-xs-12">
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        
+                        <!--Post Single-->
+                        <div class="postSingle">               
+                            
+                            <div class="postMedia">                    
+                                <img src="{{post.featured_image.url}}" alt=""  class="img-fluid">
+                            </div><!--Post image-->
+    
+                            <div class="postMeta clearfix">
+                                <div class="postMeta-info">
+                                    <span class="metaAuthor"><i class="bi bi-person-fill"></i> <a href="#">{{post.author}}</a></span>
+                                    {% comment %} <span class="metaCategory"><i class="bi bi-folder-fill"></i> <a href="#">Research</a></span> {% endcomment %}
+                                    <!-- <span class="metaComment"><i class="fa fa-comments"></i> <a href="#">3 comments</a></span> -->
+                                </div>
+                                <div class="postMeta-date">
+                                    <span class="metaDate"><i class="bi bi-calendar-fill"></i> <a href="#">{{post.date_posted}}</a></span>
+                                </div>
+                            </div><!--Post meta-->
+    
+                            <div class="postTitle">
+                                <h1>{{post.title}}</h1>
+                                <div class="divider-small"></div>
+                            </div> <!--Post title-->  
+                            
+                                <p>{{post.body | safe}}</p>
+                        </div>
+                        <!--End post single--> 
+                    </div>           
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Content End -->
+    {% endblock %}
