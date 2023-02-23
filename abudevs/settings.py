@@ -73,6 +73,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'abudevs.wsgi.application'
 
+JAZZMIN_SETTINGS = {
+    "site_title" : "ABUDevs",
+    "site_header" : "ABUDevs",
+    "site_brand" : 'ABUDevs',
+    "site_logo" : "assets/img/Abudevs New Logo.png",
+    "welcome_sign" : "Welcome to ABUDevs Site Administration",
+    "copyright" : "ABUDevs",
+    "login_logo" : "assets/img/Abudevs New Logo.png",
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -130,7 +140,7 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.console'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587

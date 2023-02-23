@@ -31,7 +31,7 @@
                         
                         <div class="blog-post-body">
                             <h4><a class="title" href="blog_single_post.html">{{a.title}}</a></h4>
-                            <p class="p-bottom-20">{{a.body|truncatechars:50}}</p>
+                            <p class="p-bottom-20">{{a.body|safe|truncatechars:10}}</p>
                             <a href="/blog/{{a.slug}}" class="read-more">Read More >></a>
                         </div><!--post body-->                   
                     </div> <!-- /.blog -->

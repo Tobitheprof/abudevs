@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="login" class="">
+    <div class="container-fluid vh-75" style="margin-top:70px">
+        <div class="" style="margin-top:50px">
+            <div class="rounded d-flex justify-content-center">
+                <div class="col-md-4 col-sm-12 shadow-lg p-5">
+                    <div class="text-center">
+                        <h3 class="header-color text-start">Sign Up</h3>
+                        <p class="green-text" style="text-align: justify;">Sign Up on ABUDevs today and get acceess to quality resources and awesome products</p>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <p class="header-color">{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="p-4">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                <input type="text" class="form-control" placeholder="Last Name" name="last_name">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="email" name="email" id="first_name" class="form-control" placeholder="Email Address">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                <input type="text" class="form-control" placeholder="Username" name="username">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+                            </div>
+                            <button class="btn btn-secondary text-center mt-2 btn-custom" type="submit">
+                                Login
+                            </button>
+                            <p class="text-center mt-5">Don't have an account?
+                                <a href="{% url 'register' %}" style="text-decoration: none;"><span class="green-text">Sign Up</span></a>
+                            </p>
+                            <a href="#" style="text-decoration: none;"><p class="text-center">Forgot your password?</p></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

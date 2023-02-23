@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'assets/boxicons/css/boxicons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/swiper/swiper-bundle.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/remixicon/remixicon.css' %}">
     <link rel="stylesheet" href="{% static 'assets/aos/aos.css' %}">
     <link rel="stylesheet" href="{% static 'assets/animate.css/animate.min.css' %}">
@@ -24,10 +25,10 @@
 </head>
 <body>
     <!--Nav Start-->
-    <nav class="navbar navbar-expand-md navbar-light bg-light animate__animated animate__fadeIn">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark animate__animated animate__fadeIn">
         <div class="container-lg">
-            <a href="#" class="navbar-brand text-sm-start">
-                <img src="{% static 'assets/img/Abudevs New Logo.png' %}" alt="" width="50" height="50">
+            <a href="{% url 'index' %}" class="navbar-brand text-sm-start">
+                <img src="{% static 'assets/img/Abudevs New Logo.png' %}" alt="" width="65" height="65">
             </a>
             <button class="navbar-toggler" type="button"  type="button" data-bs-toggle="modal" data-bs-target="#work">
                 <span class="navbar-toggler-icon"></span>
@@ -154,8 +155,9 @@
         </div>
     </footer><!-- End Footer -->
 
-
+    <script src="{% static 'assets/swiper/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
     <script src="{% static 'assets/aos/aos.js' %}"></script>
     <script>AOS.init();</script>
     <script src="{% static 'assets/purecounter/purecounter.js' %}"></script>

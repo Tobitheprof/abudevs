@@ -15,5 +15,6 @@ class ContactDisplay(admin.ModelAdmin):
 
 admin.site.register(Post, PostDisplay)
 admin.site.register(Contact, ContactDisplay)
+admin.site.register(Profile)
 
 # Register your models here.
