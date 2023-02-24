@@ -1,0 +1,72 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+	<section id="header">
+		<h3>Welcome to ABUDevs | The Ultimate Developer Student Club</h3>
+		<p>Gettting started is quite easy. From here you can learn a new skill, develop an existing one, check out upcoming events or even register for exclusive benefits.</p>
+	</section>
+
+	<section id="body">
+		<div class="container-lg" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-center p-4">
+                <h2 class="green-text fw-bold">What would you like to do today?</h2>
+            </div>
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-md-3 col-sm-6 m-bottom-20 mb-3">              
+                    <div class="service">               
+                        <div class="service-icon">
+                            <img src="{% static 'assets/img/juicy-man-programmer-writing-code-and-make-web-design-on-a-pc.gif' %}" alt="" class="img-fluid">
+                        </div>
+                        <h4 class="green-text fw-bold">Learn a new skill</h4>
+                        <div class="">
+                            <p>Learn in demand tech skills like Web Developemt, UI/UX design, ML & AI and so on today.</p>
+							<a href="#" class="btn btn-secondary btn-custom me-2 normal-text">Get Started</a>
+                        </div>
+                    </div>                   
+                </div> 
+
+                <div class="col-md-3 col-sm-6 m-bottom-20 mb-3">              
+                    <div class="service">               
+                        <div class="service-icon">
+                            <img src="{% static 'assets/img/juicy-zoom-meeting.gif' %}" alt="" class="img-fluid">
+                        </div>
+                        <h4 class="green-text fw-bold">Events</h4>
+                        <div class="">
+                            <p>Check out upcoming events where we talk about the latest advancements in tech and career growth</p>
+							<a href="#" class="btn btn-secondary btn-custom me-2 normal-text">Get Started</a>
+                        </div>
+                    </div>                   
+                </div> 
+                
+                <div class="col-md-3 col-sm-6 m-bottom-20 mb-3">              
+                    <div class="service">               
+                        <div class="service-icon">
+                            <img src="{% static 'assets/img/abstract-working-remotely.gif' %}" alt="" class="img-fluid">
+                        </div>
+                        <h4 class="green-text fw-bold">Benefits</h4>
+                        <div class="">
+                            <p>Get nice membership benefits like ABUDevs merchandise for completing challenges</p>
+							<a href="#" class="btn btn-secondary btn-custom me-2 normal-text">Get Started</a>
+                        </div>
+                    </div>                   
+                </div> 
+
+                <div class="col-md-3 col-sm-6 m-bottom-20 mb-3">              
+                    <div class="service">               
+                        <div class="service-icon">
+                            <img src="{% static 'assets/img/juicy-girl-working-at-home.gif' %}" alt="" class="img-fluid">
+                        </div>
+                        <h4 class="green-text fw-bold">Blog</h4>
+                        <div class="">
+                            <p>We always post awesome content that'll help you advance on our blog we also share opportunities as well</p>
+							<a href="{% url 'blog' %}" class="btn btn-secondary btn-custom me-2 normal-text">Read Blog</a>
+                        </div>
+                    </div>                   
+                </div> 
+            </div>
+        </div>
+	</section>
+
+{% endblock %}

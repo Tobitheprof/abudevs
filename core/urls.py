@@ -7,7 +7,9 @@ urlpatterns = [
     path('contact/', views.contact, name="contact"),
     path('blog/', views.blog, name="blog"),
     path('blog/<str:slug>/', views.blog_det, name="blog_det"),
-    path('login', views.login, name="login"),
-    path('register', views.register, name="register"),
+    path('login/', views.login, name="login"),
+    path('register/', views.register, name="register"),
+    path('home/', views.home, name="home"),
+    path('edit-profile/', views.edit_profile, name="edit-profile"),
 
 ]

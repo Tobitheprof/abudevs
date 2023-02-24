@@ -13,6 +13,7 @@ CHOICES = (
 class Profile(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     phone_number = models.CharField(max_length=300)
+    occupation = models.CharField(max_length=300, null=True)
     user_id = models.IntegerField(null=True)
     address = models.CharField(max_length=300)
     nationality = models.CharField(max_length=300)

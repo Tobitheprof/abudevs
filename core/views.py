@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import *
 
 
 """
@@ -15,6 +16,11 @@ Also, ensure you drink boob milk for maximum efficiency
 #------------------------ Authenticated Views Start -------------------------#
 
 def login(request):
+    user = request.user
+
+    if user.is_authenticated:
+        return redirect(home)
+
     context = {
         'title' : 'Login',
     }
@@ -34,7 +40,14 @@ def login(request):
     else:
         return render(request, 'login.html', context)
 
+def home(request):
+    return render(request, 'home.html')
+
 def register(request):
+    user = request.user()
+
+    if user.is_authenticated():
+        return redirect(home)
     context = {
         'title' : 'Sign Up',
     }
@@ -81,7 +94,7 @@ def register(request):
             user_model = User.objects.get(username=username)
             new_profile = Profile.objects.create(owner=user_model, user_id=user_model.id)
             new_profile.save()
-            return redirect('register')#Rediects to specified page once condition is met
+            return redirect('edit-profile')#Rediects to specified page once condition is met
         else:
             messages.info(request, "Passwords do not match")
             return redirect(register)
@@ -89,6 +102,35 @@ def register(request):
     else:
         return render(request, 'register.html', context)
 
+@login_required
+def edit_profile(request):
+    user_profile = Profile.objects.get(owner=request.user)
+    if request.method == "POST":
+            address = request.POST['address']
+            phone_number = request.POST['phone']
+            nationality = request.POST['nationality']
+            about_me = request.POST['desc']
+            join_reason = request.POST['join_reason']
+            occupation = request.POST['occupation']
+
+            user_profile.address = address
+            user_profile.occupation = occupation
+            user_profile.phone_number = phone_number
+            user_profile.nationality = nationality
+            user_profile.join_reason = join_reason
+            user_profile.about_me = about_me
+            user_profile.save()
+            return redirect("home")
+    context = {
+        'title' : 'Edit Profile',
+        'user_profile' : user_profile,
+    }
+    return render(request, 'edit-profile.html', context)
+
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 #------------------------ Authenticated Views End --------------------------#
 

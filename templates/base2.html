@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<title>ABUDevs | {{title}}</title>
+    <style>
+        section{
+            padding: 35px 0;
+        }
+    </style>
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons/bootstrap-icons.css' %}">
+  </head>
+  <body>
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-success" style="background-color: #249254;">
+						<i class="bi bi-caret-right-fill"></i>
+						<span class="sr-only">Toggle Menu</span>
+	        		</button>
+        		</div>
+				<div class="p-4">
+					<h1><a href="{% url 'home' %}" class="logo"><img src="{% static 'assets/img/Abudevs New Logo.png' %}" alt="" width="100" height="100"></h1>
+					<ul class="list-unstyled components mb-5">
+						<li>
+							<a href="{% url 'home' %}" class="white-text"><span class="bi bi-house-fill mr-3 white-text"></span> Home</a>
+						</li>
+						<li>
+							<a href="{% url 'edit-profile' %}" class="white-text"><span class="bi bi-pencil-fill mr-3 white-text"></span> Edit-Profile</a>
+						</li>
+						<li>
+						    <a href="#" class="white-text"><span class="bi bi-calendar-fill mr-3 white-text"></span> Events</a>
+						</li>
+						<li>
+						    <a href="#" class="white-text"><span class="bi bi-file-spreadsheet mr-3 white-text"></span> Blog</a>
+						</li>
+						<li>
+						    <a href="#" class="white-text"><span class="bi bi-card-heading mr-3 white-text"></span> Courses</a>
+						</li>
+						<li>
+						    <a href="#" class="white-text"><span class="bi bi-arrow-right mr-3 white-text"></span> Logout</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="footer">
+					<p class="mr-3">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | ABUDevs</p>
+				</div>
+			</nav>
+
+
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5 pt-5">
+			{% block content %}
+            
+            {% endblock %}
+		</div>
+	</div>
+
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/nuutz.js' %}"></script>
+  </body>
+</html>
