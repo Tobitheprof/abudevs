@@ -4,6 +4,17 @@ from autoslug import AutoSlugField
 User=get_user_model()
 
 
+CATEGORIES = (
+    ('STEM', 'STEM'),
+    ('Cloud and AI', 'Cloud and AI'), 
+    ('ML and AI', 'ML and AI'),
+    ('Design', 'Design'),
+    ('App Development', 'App Development'),
+    ('Project Management', 'Project Management'),
+    ('Data Analysis', 'Data Analysis'),
+
+)
+
 CHOICES = (
     ('publish', 'publish'),
     ('draft', 'draft'),
@@ -46,6 +57,24 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Course(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    slug = AutoSlugField(populate_from="title", unique=True)
+    featured_image = models.ImageField(upload_to="Course Images")
+    author = models.CharField(max_length=100)
+    number_of_lectures = models.CharField(max_length=300)
+    category = models.CharField(choices=CATEGORIES, max_length=300)
+    description = models.TextField()
+
+class Lecture(models.Model):
+    title = models.CharField(max_length=300)
+    video_link = models.FileField(max_length=900,null=False)
+    serial_number = models.IntegerField(null=True)
+    course = models.ForeignKey(Course, on_delete = models.CASCADE, null=False)
+
+    def __str__(self):
+        return self.title
 
         
 
