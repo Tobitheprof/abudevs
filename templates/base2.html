@@ -14,10 +14,11 @@
 	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
 	<link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons/bootstrap-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/animate.css/animate.min.css' %}">
   </head>
   <body>
 		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
+			<nav id="sidebar" class="animate__animated animate__flipInX">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-success" style="background-color: #249254;">
 						<i class="bi bi-caret-right-fill"></i>
@@ -37,13 +38,13 @@
 						    <a href="#" class="white-text"><span class="bi bi-calendar-fill mr-3 white-text"></span> Events</a>
 						</li>
 						<li>
-						    <a href="#" class="white-text"><span class="bi bi-file-spreadsheet mr-3 white-text"></span> Blog</a>
+						    <a href="{% url 'blog' %}" class="white-text"><span class="bi bi-file-spreadsheet mr-3 white-text"></span> Blog</a>
 						</li>
 						<li>
-						    <a href="#" class="white-text"><span class="bi bi-card-heading mr-3 white-text"></span> Courses</a>
+						    <a href="{% url 'courses' %}" class="white-text"><span class="bi bi-card-heading mr-3 white-text"></span> Courses</a>
 						</li>
 						<li>
-						    <a href="#" class="white-text"><span class="bi bi-arrow-right mr-3 white-text"></span> Logout</a>
+						    <a href="{% url 'logout' %}" class="white-text"><span class="bi bi-arrow-right mr-3 white-text"></span> Logout</a>
 						</li>
 					</ul>
 				</div>

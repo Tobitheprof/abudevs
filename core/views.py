@@ -10,7 +10,9 @@ from django.contrib.auth.decorators import *
 """
 Tobi TheRevolutionary wrote this code, so he's the god of it, any problems you face while handling this project should be directed to him.
 
-Also, ensure you drink boob milk for maximum efficiency 
+Also, ensure you drink boob milk for maximum efficiency.
+TIme Spent on entire project: 72 Hours
+Total time allocated: 96 hours
 """
 
 #------------------------ Authenticated Views Start -------------------------#
@@ -40,6 +42,7 @@ def login(request):
     else:
         return render(request, 'login.html', context)
 
+@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -131,6 +134,10 @@ def edit_profile(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+@login_required
+def courses(request):
+    return render(request, 'courses.html')
 
 #------------------------ Authenticated Views End --------------------------#
 

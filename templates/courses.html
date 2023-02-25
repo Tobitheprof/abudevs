@@ -1,0 +1,126 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<section id="courses" class="courses">
+    <div class="container animate__animated animate__fadeIn">
+        <div class="text-center">
+            <h1 class="green-text fw-bold">Courses</h1>
+            <p class="lead">ABUDevs has put together some nice courses to help propel you to the pinnacle of your your career. To get started, select a course and start learning</p>
+        </div>
+
+        <!-- Categories Start -->
+        <div class="text-start mb-3">
+            <h3 class="green-text fw-bold">Categories</h3>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/stem.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>STEM</h4>
+                        </div>
+                        <h3><a href="#">STEM Courses</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/project_management.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>Project Management</h4>
+                        </div>
+                        <h3><a href="#">Project Management</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/ml_ai.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>Machine Learning and AI</h4>
+                        </div>
+                        <h3><a href="#">ML & AI</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/mobile.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>App Development</h4>
+                        </div>
+                        <h3><a href="#">Mobile App Developement</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/data.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>Analysis</h4>
+                        </div>
+                        <h3><a href="#">Data Analysis</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                      <img src="{% static 'assets/img/cloud_ai.jpg' %}" class="img-fluid" alt="...">
+                      <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>Cloud</h4>
+                        </div>
+                        <h3><a href="#">Cloud and AI</a></h3>
+                        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                      </div>
+                    </div>
+                </div> <!-- End Course Item-->
+
+            </div>
+        </div>
+        <!-- Categories End -->
+
+
+        <div class="text-start">
+            <h3 class="green-text fw-bold">Popular Courses</h3>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="course-item">
+                  <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4><a href="#">Website Design</a></h4>
+                    </div>
+                    <h3><a href="#">Website Design</a></h3>
+                    <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="{% static 'assets/img/trainer-1.jpg' %}" class="img-fluid" alt="">
+                        <span>Tobi TheRevolutionary</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div> <!-- End Course Item-->
+
+        </div>
+    </div>
+</section>
+{% endblock %}
