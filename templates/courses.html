@@ -20,7 +20,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>STEM</h4>
                         </div>
-                        <h3><a href="#">STEM Courses</a></h3>
+                        <h3><a href="{% url 'stem' %}">STEM Courses</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>Project Management</h4>
                         </div>
-                        <h3><a href="#">Project Management</a></h3>
+                        <h3><a href="{% url 'project-management' %}">Project Management</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>Machine Learning and AI</h4>
                         </div>
-                        <h3><a href="#">ML & AI</a></h3>
+                        <h3><a href="{% url 'ml-and-ai' %}">ML & AI</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -59,7 +59,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>App Development</h4>
                         </div>
-                        <h3><a href="#">Mobile App Developement</a></h3>
+                        <h3><a href="{% url 'app-dev' %}">Mobile App Developement</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>Analysis</h4>
                         </div>
-                        <h3><a href="#">Data Analysis</a></h3>
+                        <h3><a href="{% url 'data-analysis' %}">Data Analysis</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -85,7 +85,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                           <h4>Cloud</h4>
                         </div>
-                        <h3><a href="#">Cloud and AI</a></h3>
+                        <h3><a href="{% url 'cloud-and-ai' %}">Cloud and AI</a></h3>
                         <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                       </div>
                     </div>
@@ -100,25 +100,26 @@
             <h3 class="green-text fw-bold">Popular Courses</h3>
         </div>
         <div class="row">
-
+          {% for a in course %}
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="course-item">
-                  <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
+                  <img src="{{a.featured_image.url}}" class="img-fluid" alt="...">
                   <div class="course-content">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4><a href="#">Website Design</a></h4>
+                        <h4><a href="#">{{a.category}}</a></h4>
                     </div>
-                    <h3><a href="#">Website Design</a></h3>
-                    <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                    <h3><a href="#">{{a.title}}</a></h3>
+                    <p>{{a.description}}</p>
                     <div class="trainer d-flex justify-content-between align-items-center">
                       <div class="trainer-profile d-flex align-items-center">
-                        <img src="{% static 'assets/img/trainer.jpg' %}" class="img-fluid" alt="">
-                        <span>Tobi TheRevolutionary</span>
+                        <img src="{% static 'assets/img/tobi.jpg' %}" class="img-fluid" alt="">
+                        <span>{{a.author}}</span>
                       </div>
                     </div>
                   </div>
                 </div>
             </div> <!-- End Course Item-->
+          {% endfor %}
 
         </div>
     </div>

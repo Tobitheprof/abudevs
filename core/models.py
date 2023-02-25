@@ -67,9 +67,13 @@ class Course(models.Model):
     category = models.CharField(choices=CATEGORIES, max_length=300)
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
+
 class Lecture(models.Model):
     title = models.CharField(max_length=300)
-    video_link = models.FileField(max_length=900,null=False)
+    video_link = models.CharField(max_length=900,null=False)
+    description = models.TextField(null=True)
     serial_number = models.IntegerField(null=True)
     course = models.ForeignKey(Course, on_delete = models.CASCADE, null=False)
 

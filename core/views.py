@@ -137,7 +137,96 @@ def logout(request):
 
 @login_required
 def courses(request):
-    return render(request, 'courses.html')
+    course = Course.objects.all()[:9]
+    context = {
+        "title" : "Courses",
+        "course" : course
+    }
+    return render(request, 'courses.html', context)
+
+@login_required
+def stem(request):
+    course = Course.objects.filter(category="STEM")
+    context = {
+        'course' : course,
+        'title' : "STEM Courses"
+    }
+    return render(request, 'category.html', context)
+
+
+@login_required
+def cloud_ai(request):
+    course = Course.objects.filter(category="Cloud and AI")
+    context = {
+        'course' : course,
+        'title' : "Cloud and AI Courses"
+    }
+    return render(request, 'category.html', context)
+
+@login_required
+def ml_ai(request):
+    course = Course.objects.filter(category="ML and AI")
+    context = {
+        'course' : course,
+        'title' : "ML and AI Courses"
+    }
+    return render(request, 'category.html', context)
+
+@login_required
+def design(request):
+    course = Course.objects.filter(category="Design")
+    context = {
+        'course' : course,
+        'title' : "Design Courses"
+    }
+    return render(request, 'category.html', context)
+
+@login_required
+def app_dev(request):
+    course = Course.objects.filter(category="App Development")
+    context = {
+        'course' : course,
+        'title' : "App Development Courses"
+    }
+    return render(request, 'category.html', context)
+
+@login_required
+def proj_man(request):
+    course = Course.objects.filter(category="Project Management")
+    context = {
+        'course' : course,
+        'title' : "Project Management Courses"
+    }
+    return render(request, 'category.html', context)
+
+@login_required
+def data_anal(request): #we both know you saw the anal here XD
+    course = Course.objects.filter(category="Data Analysis")
+    context = {
+        'course' : course,
+        'title' : "Data Analysis Courses"
+    }
+    return render(request, 'category.html', context)
+
+def det(request, slug):
+    course = Course.objects.get(slug = slug)
+    serial_number = request.GET.get('lecture')
+    lectures = course.lecture_set.all().order_by('serial_number')
+
+
+    if serial_number is None:
+        serial_number = 1
+    lecture = Lecture.objects.get(serial_number = serial_number, course = course)
+
+
+
+    context = {
+        'course' : course,
+        'lecture' : lecture,
+        'lectures' : lectures,
+
+    }
+    return render(request, 'det.html', context)
 
 #------------------------ Authenticated Views End --------------------------#
 
