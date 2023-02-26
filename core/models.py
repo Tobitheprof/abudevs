@@ -80,6 +80,15 @@ class Lecture(models.Model):
     def __str__(self):
         return self.title
 
+class Events(models.Model):
+    title = models.CharField(max_length=300)
+    description = models.TextField()
+    featured_image = models.ImageField()
+    date = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
         
 
 # Create your models here.

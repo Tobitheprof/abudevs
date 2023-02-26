@@ -44,7 +44,10 @@ def login(request):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'title' : 'Dashboard'
+    }
+    return render(request, 'home.html', context)
 
 def register(request):
     user = request.user
@@ -224,9 +227,18 @@ def det(request, slug):
         'course' : course,
         'lecture' : lecture,
         'lectures' : lectures,
+        'title' : course
 
     }
     return render(request, 'det.html', context)
+
+def events(request):
+    events = Events.objects.all()
+    context = {
+        'events' : events,
+        'title' : 'Events'
+    }
+    return render(request, 'events.html', context)
 
 #------------------------ Authenticated Views End --------------------------#
 

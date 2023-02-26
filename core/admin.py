@@ -33,5 +33,6 @@ admin.site.register(Contact, ContactDisplay)
 admin.site.register(Profile)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lecture)
+admin.site.register(Events)
 
 # Register your models here.

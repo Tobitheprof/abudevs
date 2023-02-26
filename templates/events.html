@@ -1,0 +1,34 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<!-- ======= Events Section ======= -->
+<section id="events" class="events">
+    <div class="container" data-aos="fade-up">
+        <div class="text-center">
+            <h3 class="green-text fw-bold mb-3">Upcoming Events</h3>
+            <p class="lead">Check out our upcoming events to stay up to date on our upcoming events</p>
+        </div>
+      <div class="row">
+        {% for e in events %}
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-img">
+              <img src="{{e.featured_image.url}}" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">{{e.title}}</a></h5>
+              {% comment %} <p class="fst-italic text-center">{{e.date}}</p> {% endcomment %}
+              <p class="card-text">{{e.description}}</p>
+              <p><i class="bi bi-clock"></i> {{e.date}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Events Section -->
+
+
+{% endblock %}
