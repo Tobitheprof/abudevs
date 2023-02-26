@@ -47,9 +47,9 @@ def home(request):
     return render(request, 'home.html')
 
 def register(request):
-    user = request.user()
+    user = request.user
 
-    if user.is_authenticated():
+    if user.is_authenticated:
         return redirect(home)
     context = {
         'title' : 'Sign Up',
