@@ -1,0 +1,13 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<section id="main-content">
+    <div class="container">
+        <div class="text-start">
+            <h3 class="green-text fw-bold">{{challenge.title}}</h3>
+        </div>
+        <p>{{challenge.body|safe}}</p>
+    </div>
+</section>
+
+{% endblock %}

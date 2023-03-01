@@ -16,12 +16,12 @@
     <section id="blog" class="animate__animated animate__fadeIn">
         <div class="container-lg">
             <div class="row">
-                {% for a in post %}
+                {% for a in post reversed %}
                 <!-- === Blog item 1 === -->
                 <div class="col-sm-6 mb-4">
                     <div class="blog wow zoomIn" data-wow-duration="1s" data-wow-delay="0.7s">
                         <div class="blog-media">
-                            <a  href="blog_single_post.html"><img src="{{a.featured_image.url}}" alt="" class="img-fluid"></a>
+                            <a  href="blog_single_post.html"><img src="{{a.featured_image.url}}" alt="" class="img-fluid mb-3"></a>
                         </div><!--post media-->
                         
                         <div class="blog-post-info clearfix">
@@ -31,7 +31,7 @@
                         
                         <div class="blog-post-body">
                             <h4><a class="title" href="blog_single_post.html">{{a.title}}</a></h4>
-                            <p class="p-bottom-20">{{a.body|safe|truncatechars:10}}</p>
+                            <p class="p-bottom-20">{{a.body|safe|truncatechars:30}}</p>
                             <a href="/blog/{{a.slug}}" class="read-more">Read More >></a>
                         </div><!--post body-->                   
                     </div> <!-- /.blog -->

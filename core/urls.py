@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -10,6 +11,8 @@ urlpatterns = [
     path('edit-profile/', views.edit_profile, name="edit-profile"),
     path('logout/', views.logout, name="logout"),
     path('events/', views.events, name="events"),
+    path('challenge/', views.challenge, name="challenge"),
+    path('challenge/<str:slug>/', views.challenge_det, name="challenge_det"),
     
 
     path('courses/', views.courses, name="courses"),
@@ -32,6 +35,16 @@ urlpatterns = [
     path('blog/', views.blog, name="blog"),
     path('blog/<str:slug>/', views.blog_det, name="blog_det"),
     #--------------------- Unauth URLs end ------------ #
+
+    #Password Reset URLs
+
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name="password_reset.html"), name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name="password_reset_sent.html"), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_form.html"), name="password_reset_confirm"),
+    path('reset_password_success/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_done.html"), name="password_reset_complete"),
+
+    #End of Password Reset URLs
+
    
 
 ]

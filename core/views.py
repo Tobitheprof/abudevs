@@ -233,12 +233,29 @@ def det(request, slug):
     return render(request, 'det.html', context)
 
 def events(request):
-    events = Events.objects.all()
+    events = Events.objects.all().order_by('date')
     context = {
         'events' : events,
         'title' : 'Events'
     }
     return render(request, 'events.html', context)
+@login_required
+def challenge(request):
+    challenge = Challenge.objects.filter(status="publish")
+    context = {
+        'challenge' : challenge,
+        'title' : "Challenges"
+    }
+    return render(request, 'challenge.html', context)
+
+@login_required
+def challenge_det(request, slug):
+    challenge = Challenge.objects.get(slug=slug)
+    context = {
+        'challenge' : challenge,
+        'title' : challenge
+    }
+    return render(request, 'challenge_det.html', context)
 
 #------------------------ Authenticated Views End --------------------------#
 
@@ -255,8 +272,10 @@ def index(request):
     return render(request, 'index.html', context)
 
 def about(request):
+    team = TeamMember.objects.all()
     context = {
-        'title' : 'About'
+        'title' : 'About',
+        'team' : team,
     }
     return render(request, 'about.html', context)
 
@@ -277,7 +296,7 @@ def contact(request):
     return render(request, 'contact.html', context)
 
 def blog(request):
-    post = Post.objects.filter(status="publish")
+    post = Post.objects.filter(status="publish").order_by('id')
     context = {
         'post' : post,
         'title' : 'Blog'

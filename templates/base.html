@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ahmadu Bello University | Developer Club. The ultimate developer school club">
-    <meta content="ABUDevs is " name="description">
+    <meta content="ABUDevs is the ultimate developer student club, giving you access to awesome resources for free and helping you take your career to the next level" name="description">
     <meta content="developer, free, code, student, community, africa, tech, sdg" name="keywords">
+    <link rel="shortcut icon" href="{% static 'assets/img/Abudevs New Logo.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap-icons/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
@@ -85,6 +86,18 @@
                 </div>
                 <div class="modal-body">
                     <ul class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="{% url 'home' %}" class="nav-link">Dashboard</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'register' %}" class="nav-link">Register</a>
+                        </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a href="{% url 'about' %}" class="nav-link">About Us</a>
                         </li>
@@ -116,38 +129,42 @@
                 Zaria, Kaduna<br>
                     <br><br>
                 <strong>Phone:</strong> +234 91 5937 2550<br>
-                <strong>Email:</strong> abudev.webmaster@mail.com<br>
+                <strong>Email:</strong> abudevs2019@gmail.com<br>
                 </p>
             </div>
 
             <div class="col-lg-2 col-md-6 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Team</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                {% if user.is_authenticated %}
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+                {% else %}
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+                {% endif %}
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Contact</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">Team</a></li>
+                {% comment %} <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> {% endcomment %}
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Guidance & Counselling</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Study Jams</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Advertising</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="#">Event Organization</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Guidance & Counselling</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'courses' %}">Study Jams</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Advertising</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Event Organization</a></li>
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-6 footer-newsletter">
+            <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
                 <h4>Join Our Newsletter</h4>
                 <p>Join our Newsletter to receive daily updates on tech, career growth, hackathons and tech events</p>
                 <form method="POST">
                 <input type="email" name="email" required><input type="submit" value="Subscribe">
                 </form>
-            </div>
+            </div> -->
 
             </div>
         </div>
@@ -161,7 +178,7 @@
             </div>
             <div class="credits">
             
-            Designed and developed by <a href="#">The Web Lead at ABUDevs</a>
+            Designed and developed by <a href="mailto:tobiekundayo07@gmail.com">The Web Lead at ABUDevs(Tobi TheRevolutionary)</a>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">

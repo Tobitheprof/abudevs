@@ -20,6 +20,11 @@ CHOICES = (
     ('draft', 'draft'),
 )
 
+ANSWERED = (
+    ('YES', 'YES'),
+    ('NO', 'NO'),
+)
+
 
 class Profile(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -35,10 +40,23 @@ class Profile(models.Model):
     def __str__(self):
         return self.owner.username
 
+class TeamMember(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=255)
+    bio = models.TextField(max_length=500)
+    profile_pic = models.ImageField(upload_to="Team Pics")
+    twitter_link = models.URLField()
+    facebook_link = models.URLField()
+    linkedin_link = models.URLField()
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
     title = models.CharField(max_length=300, help_text="Enter a catchy title here", unique=True)
-    fetured_image = models.ImageField(upload_to="post_images")
+    featured_image = models.ImageField(upload_to="post_images")
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     slug = AutoSlugField(populate_from="title", editable=False)
     date_posted = models.DateField(auto_now_add=True)
@@ -52,6 +70,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=300)
     email = models.EmailField()
     subject = models.CharField(max_length=300)
+    answered = models.CharField(max_length=300, choices=ANSWERED, null=True, default='NO')
     message = models.TextField()
     
 
@@ -88,6 +107,19 @@ class Events(models.Model):
 
     def __str__(self):
         return self.title
+
+class Challenge(models.Model):
+    title = models.CharField(max_length=300)
+    featured_image = models.ImageField(upload_to="post_images")
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    slug = AutoSlugField(populate_from="title", editable=False)
+    date_posted = models.DateField(auto_now_add=True)
+    body = models.TextField()
+    status = models.CharField(max_length=300, choices=CHOICES)
+
+    def __str__(self):
+        return self.title
+
 
         
 

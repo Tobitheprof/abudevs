@@ -6,10 +6,14 @@
         <div class="container-lg">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <h1 class="display-4 text-md-start"><span class="fw-bold" style="color: rgb(12, 131, 20);">ABU</span><span class="fw-bold" style="color: rgb(205, 206, 206);">Devs</span></h1>
+                    <h1 class="display-4 text-md-start"><span class="fw-bold" style="color: rgb(12, 131, 20);">ABU</span><span class="fw-bold" style="color: rgb(219, 39, 39);">Devs</span></h1>
                     <!-- <h4 class="text-muted justice">The ultimate community of developers</h4> -->
                     <p class="my-3 text-muted justice lead white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora perferendis adipisci et nostrum error quos numquam explicabo placeat eaque perspiciatis quas veniam cum, tempore debitis voluptate autem eos fuga nobis?</p>
-                    <a href="#" class="btn btn-secondary btn-custom me-2 normal-text">Join the Community</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'home' %}" class="btn btn-secondary btn-custom me-2 normal-text">Dashboard</a>
+                    {% else %}
+                    <a href="{% url 'register' %}" class="btn btn-secondary btn-custom me-2 normal-text">Join the Community</a>
+                    {% endif %}
                 </div>
                 <div class="col-md-6 d-none d-md-block text-center">
                     <span class="goat" data-bs-placement="bottom" title="ABUDEVS">
@@ -94,7 +98,7 @@
                         <div class="service-icon">
                             <img src="{% static 'assets/img/juicy-man-programmer-writing-code-and-make-web-design-on-a-pc.gif' %}" alt="" class="img-fluid">
                         </div>
-                        <h4 class="green-text fw-bold">Study Jam Sessions</h4>
+                        <h4 class="green-text fw-bold">Study Jams</h4>
                         <div class="">
                             <p>Study Jams are traning sessions we have that teach awesome digital skills like ML & AI, Web Development and so on</p>
                         </div>
@@ -154,7 +158,7 @@
                 <div class="row featurette mb-4 justify-content-center align-items-center mt-3" data-aos="fade-down" data-aos-delay="300" data-aos-offset="0">
                     <div class="col-md-7 order-md-2 mt-5">
                         <h2 class="featurette-heading"><span class="green-text fw-bold">What is ABUDevs?</span> <span class="text-muted">and how can it help me?</span></h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia maiores, quia magnam, tempora numquam perspiciatis saepe excepturi harum consequatur quisquam soluta atque! Nobis praesentium repudiandae aspernatur vel ipsa, ut non.</p>
+                        <p class="lead">ABUDevs is a student developer community based in Ahmadu Bello University, Zaria that aims to help student developers reach the peak of their career by providing them with the resources that they'd need to do so.</p>
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img src="{% static 'assets/img/slide03.jpg' %}" alt="image" class="img-fluid" width="500" height="500">
@@ -166,7 +170,7 @@
                 <div class="row featurette mb-4 justify-content-center align-items-center mt-3" data-aos="fade-down" data-aos-delay="300" data-aos-offset="0">
                     <div class="col-md-7 mt-5">
                         <h2 class="featurette-heading header-color"><span class="green-text fw-bold">How do I join ABUDevs?</span> <span class="text-muted">It's really easy</span></h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, odit voluptate vel reprehenderit sint, blanditiis exercitationem porro illum rerum at quis nobis, excepturi omnis quidem dolore odio optio veniam est.</p>
+                        <p class="lead">Joining the ABUDevs community isn't hard, all you need to do is <a href="{% url 'register' %}">sign up</a> and just like that, you're part of the family.</p>
                     </div>
                     <div class="col-md-5">
                         <img src="{% static 'assets/img/slide02.jpg' %}" alt="image" width="500" height="500" class="img-fluid">
@@ -178,7 +182,7 @@
                 <div class="row featurette mb-4 justify-content-center align-items-center mt-3" data-aos="fade-down" data-aos-delay="300" data-aos-offset="0">
                     <div class="col-md-7 order-md-2 mt-5">
                         <h2 class="featurette-heading header-color"><span class="green-text fw-bold">How do I connect with ABUDevs?</span> <span class="text-muted">It's quite simple</span></h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex maxime pariatur animi eius doloribus sequi aut iusto harum cupiditate? Doloribus perspiciatis, velit in quos voluptate maxime totam culpa cum atque.</p>
+                        <p class="lead">Connecting with ABUDevs is really easy, all you need to do is send us a message via our <a href="{% url 'contact' %}">contact</a> form and we'll reach out to you.
                     </div>
                     <div class="col-md-5 order-md-1">
                         <img src="{% static 'assets/img/slide01.jpg' %}" alt="hdfhjdf" class="img-fluid">

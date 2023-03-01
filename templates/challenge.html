@@ -4,31 +4,31 @@
 <section id="courses" class="courses">
     <div class="container">
         <div class="text-start">
-            <h3 class="green-text fw-bold">{{title}}</h3>
+            <h1 class="green-text fw-bold">{{title}}</h1>
+            <p class="lead">ABUDevs has weekly challenges that you can take part in to win awesome ABUDevs merchandise and other benefits. Each challenge has its own requirements and deadline to know more about challenges, select a challengea and continue</p>
         </div>
         <div class="row">
-          {% for a in course %}
+          {% for c in challenge reversed %}
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="course-item">
-                  <img src="{{a.featured_image.url}}" class="img-fluid" alt="...">
+                  <img src="{{c.featured_image.url}}" class="img-fluid" alt="...">
                   <div class="course-content">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4><a href="#" class="white-text">{{a.category}}</a></h4>
+                        {% comment %} <h4><a href="#" class="white-text">{{a.category}}</a></h4> {% endcomment %}
                     </div>
-                    <h3><a href="/courses/{{a.slug}}">{{a.title}}</a></h3>
-                    <p>{{a.description}}</p>
-                    <a href="/courses/{{a.slug}}" class="btn btn-secondary btn-custom me-2 normal-text mb-3">Get Started</a>
+                    <h3><a href="/challenge/{{c.slug}}">{{c.title}}</a></h3>
+                    <p>{{c.body|safe|truncatechars:30}}</p>
+                    <a href="/challenge/{{c.slug}}" class="btn btn-secondary btn-custom me-2 normal-text mb-3">Read More</a>
                     <div class="trainer d-flex justify-content-between align-items-center">
                       <div class="trainer-profile d-flex align-items-center">
                         <i class="bi bi-person-fill"></i>
-                        <span>{{a.author}}</span>
+                        <span>{{c.author}}</span>
                       </div>
                     </div>
                   </div>
                 </div>
             </div> <!-- End Course Item-->
           {% endfor %}
-        </div>
 
     </div>
 </section>

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="shortcut icon" href="{% static 'assets/img/Abudevs New Logo.png' %}" type="image/x-icon">
 	<title>ABUDevs | {{title}}</title>
     <style>
         section{
@@ -35,13 +36,16 @@
 							<a href="{% url 'edit-profile' %}" class="white-text"><span class="bi bi-pencil-fill mr-3 white-text"></span> Edit-Profile</a>
 						</li>
 						<li>
-						    <a href="#" class="white-text"><span class="bi bi-calendar-fill mr-3 white-text"></span> Events</a>
+						    <a href="{% url 'events' %}" class="white-text"><span class="bi bi-calendar-fill mr-3 white-text"></span> Events</a>
 						</li>
 						<li>
 						    <a href="{% url 'blog' %}" class="white-text"><span class="bi bi-file-spreadsheet mr-3 white-text"></span> Blog</a>
 						</li>
 						<li>
 						    <a href="{% url 'courses' %}" class="white-text"><span class="bi bi-card-heading mr-3 white-text"></span> Courses</a>
+						</li>
+						<li>
+						    <a href="{% url 'challenge' %}" class="white-text"><span class="bi bi-trophy mr-3 white-text"></span> Challenges</a>
 						</li>
 						<li>
 						    <a href="{% url 'logout' %}" class="white-text"><span class="bi bi-arrow-right mr-3 white-text"></span> Logout</a>
